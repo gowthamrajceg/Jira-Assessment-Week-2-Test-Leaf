@@ -1,0 +1,626 @@
+{
+	"info": {
+		"_postman_id": "7e74cec7-4652-48af-922c-eff89f9637b4",
+		"name": "JiraAssignmentWeek2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13273148"
+	},
+	"item": [
+		{
+			"name": "CreateIssueInJira_POST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"C_response = pm.response.json();\r",
+							"pm.globals.set(\"C_Id\",C_response.id);\r",
+							"console.log(\"System id generated is\",pm.globals.get(\"C_Id\"));\r",
+							"pm.globals.set(\"C_Key\",C_response.key);\r",
+							"console.log(\"System id generated is\",pm.globals.get(\"C_Key\"));\r",
+							"pm.test(\"Status code ids 201\",function(){\r",
+							"pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "S7IyVf1SS7wQN1mbMV0k0F8F",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hari.radhakrishnan@testleaf.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n    \"project\":\r\n                {\r\n                    \"key\": \"SEP\"\r\n                },\r\n    \"summary\": \"create issue in RA project\",\r\n    \"description\": \"Creating of an issue using project keys and issue type names using the REST API by GOWTHAM RAJ\",\r\n    \"issuetype\": {\r\n                    \"name\": \"Bug\"\r\n                }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{HostName}}/rest/api/2/issue/",
+					"protocol": "https",
+					"host": [
+						"{{HostName}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateIssueInJira_POSTAdditional",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"C_response = pm.response.json();\r",
+							"pm.globals.set(\"C_Id1\",C_response.id);\r",
+							"console.log(\"System id generated is\",pm.globals.get(\"C_Id1\"));\r",
+							"pm.globals.set(\"C_Key1\",C_response.key);\r",
+							"console.log(\"System id generated is\",pm.globals.get(\"C_Key1\"));\r",
+							"pm.test(\"Status code ids 201\",function(){\r",
+							"pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "S7IyVf1SS7wQN1mbMV0k0F8F",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hari.radhakrishnan@testleaf.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n    \"project\":\r\n                {\r\n                    \"key\": \"SEP\"\r\n                },\r\n    \"summary\": \"create issue in RA project\",\r\n    \"description\": \"Creating of an issue using project keys and issue type names using the REST API by GOWTHAM RAJ\",\r\n    \"issuetype\": {\r\n                    \"name\": \"Bug\"\r\n                }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{HostName}}/rest/api/2/issue/",
+					"protocol": "https",
+					"host": [
+						"{{HostName}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchIssueBasedontheIssueID_GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){\r",
+							"pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "S7IyVf1SS7wQN1mbMV0k0F8F",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hari.radhakrishnan@testleaf.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{HostName}}/rest/api/2/issue/{{C_Id}}",
+					"protocol": "https",
+					"host": [
+						"{{HostName}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{C_Id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchIssueBasedontheIssueKey_GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code ids 200\",function(){\r",
+							"pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "S7IyVf1SS7wQN1mbMV0k0F8F",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hari.radhakrishnan@testleaf.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{HostName}}/rest/api/2/issue/{{C_Key}}",
+					"protocol": "https",
+					"host": [
+						"{{HostName}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{C_Key}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditBasedontheIssueID_GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\",function(){\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "S7IyVf1SS7wQN1mbMV0k0F8F",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hari.radhakrishnan@testleaf.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n\r\n        \"description\": \"Bug creation Using REST API for testing By Gowtham Raj Edited\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{HostName}}/rest/api/2/issue/{{C_Id}}",
+					"protocol": "https",
+					"host": [
+						"{{HostName}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{C_Id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditBasedontheIssueKey_GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\",function(){\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "S7IyVf1SS7wQN1mbMV0k0F8F",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hari.radhakrishnan@testleaf.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n\r\n        \"description\": \"Bug creation Using REST API for testing By Gowtham Raj Edited\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{HostName}}/rest/api/2/issue/{{C_Key1}}",
+					"protocol": "https",
+					"host": [
+						"{{HostName}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{C_Key1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListAllSpecificIssueTypes_GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code ids 200\",function(){\r",
+							"pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "S7IyVf1SS7wQN1mbMV0k0F8F",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hari.radhakrishnan@testleaf.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{HostName}}/rest/api/2/issuetype",
+					"protocol": "https",
+					"host": [
+						"{{HostName}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issuetype"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListTheSpecificIssueTypeWithTheID_GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code ids 200\",function(){\r",
+							"pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "S7IyVf1SS7wQN1mbMV0k0F8F",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hari.radhakrishnan@testleaf.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{HostName}}/rest/api/2/issuetype/10004",
+					"protocol": "https",
+					"host": [
+						"{{HostName}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issuetype",
+						"10004"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchForAllTheIssues_GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code ids 200\",function(){\r",
+							"pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "S7IyVf1SS7wQN1mbMV0k0F8F",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hari.radhakrishnan@testleaf.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{HostName}}/rest/api/2/search?jql=project=\"SEPBATCH\"",
+					"protocol": "https",
+					"host": [
+						"{{HostName}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"search"
+					],
+					"query": [
+						{
+							"key": "jql",
+							"value": "project=\"SEPBATCH\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAnIssueinJira_With_ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\",function(){\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "S7IyVf1SS7wQN1mbMV0k0F8F",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hari.radhakrishnan@testleaf.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{HostName}}/rest/api/2/issue/{{C_Id}}",
+					"protocol": "https",
+					"host": [
+						"{{HostName}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{C_Id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAnIssueinJira_With_Key",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\",function(){\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "S7IyVf1SS7wQN1mbMV0k0F8F",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hari.radhakrishnan@testleaf.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{HostName}}/rest/api/2/issue/{{C_Key1}}",
+					"protocol": "https",
+					"host": [
+						"{{HostName}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{C_Key1}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
